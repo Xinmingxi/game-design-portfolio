@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>ShanHaiQi.Verify</RootNamespace>
+    <AssemblyName>ShanHaiQi.Verify</AssemblyName>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>9.0</LangVersion>
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+  <!-- 直接编译 Stats 的源码：不复制第二份实现，Unity 与 Verify 共用同一批 .cs -->
+  <ItemGroup>
+    <Compile Include="..\Stats\**\*.cs" />
+  </ItemGroup>
+
+  <!-- 数值数据同样只放一份：把 Stats/Data 的 JSON 原样带到输出目录 -->
+  <ItemGroup>
+    <None Include="..\Stats\Data\*.json" Link="Data\%(Filename)%(Extension)" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+</Project>

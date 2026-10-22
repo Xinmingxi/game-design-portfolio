@@ -1,0 +1,3 @@
+# 构建产物（dotnet run 会重建）
+Verify/bin/
+Verify/obj/
